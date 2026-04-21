@@ -1,201 +1,201 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Clothing Brand</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth; /* Smooth scroll */
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: black;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff4d4d;
+        }
+
+        section {
+            padding: 100px 50px; /* spacing for fixed navbar */
+        }
+
+        /* Hero Section */
+
+        .hero h1 {
+            font-size: 50px;
+        }
+
+        .hero p {
+            margin: 15px 0;
+            font-size: 20px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            background: #ff4d4d;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+        }
+
+        /* Products */
+        .products {
+            text-align: center;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            transition: 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+
+            background: 
+                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url("{% static 'images/background.jpg' %}") no-repeat center/cover;
+        }
+    </style>
 </head>
-<style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
 
-body {
-    background: #f5f5f5;
-}
-
-/* Navbar */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background: black;
-    color: white;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #ff4d4d;
-}
-
-/* Hero Section */
-.hero {
-    height: 90vh;
-    background: url('../images/banner.jpg') no-repeat center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 50px;
-}
-
-.hero p {
-    margin: 15px 0;
-    font-size: 20px;
-}
-
-.btn {
-    padding: 10px 25px;
-    background: #ff4d4d;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-}
-
-/* Products */
-.products {
-    padding: 50px;
-    text-align: center;
-}
-
-.products h2 {
-    margin-bottom: 30px;
-}
-
-.product-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 250px;
-    transition: 0.3s;
-}
-
-.card img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card button {
-    margin-top: 10px;
-    padding: 8px 15px;
-    background: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-footer {
-    background: black;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-</style>
 <body>
 
-<h1>Clothing Store</h1>
-<a href="/cart/">Go to Cart</a>
-
-<hr>
-
-{% for product in products %}
-    <div>
-        <img src="{{ product.image.url }}" width="200">
-        <h3>{{ product.name }}</h3>
-        <p>₹{{ product.price }}</p>
-    </div>
-    <hr>
-{% endfor %}
 <header>
     <div class="logo">UrbanWear</div>
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Collection</a></li>
-            <li><a href="#">Men</a></li>
-            <li><a href="#">Women</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#men">Men</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 </header>
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content">
+<!-- HOME -->
+<section id="home" class="hero">
+    <div>
         <h1>New Summer Collection</h1>
         <p>Style that defines you</p>
-        <a href="#" class="btn">Shop Now</a>
+        <a href="#collection" class="btn">Shop Now</a>
     </div>
 </section>
 
-<!-- Products Section -->
-<section class="products">
-    <h2>Trending Products</h2>
-
+<!-- COLLECTION -->
+<section id="collection" class="products">
+    <h2>Trending Collection</h2>
     <div class="product-container">
-
-        <div class="card">
-            <img src="{% static 'images/shirt1.jpg' %}" alt="">
-            <h3>Casual Shirt</h3>
-            <p>$25</p>
-            <button>Add to Cart</button>
-        </div>
-
-        <div class="card">
-            <img src="{% static 'images/shirt2.jpg' %}" alt="">
-            <h3>Denim Jacket</h3>
-            <p>$40</p>
-            <button>Add to Cart</button>
-        </div>
-
-        <div class="card">
-            <img src="{% static 'images/shirt3.jpg' %}" alt="">
-            <h3>Hoodie</h3>
-            <p>$30</p>
-            <button>Add to Cart</button>
-        </div>
-
+        {% for i in products %}
+<div class="card">
+    {% if i.image %}
+            <img src="{{ i.image.url }}" alt="">
+        {% else %}
+            <p>No Image</p>
+        {% endif %}
+        <h3>{{ i.name }}</h3>
+        <p>{{ i.price }}</p>
+    </div>
+    {% endfor %}
     </div>
 </section>
 
-<!-- Footer -->
+<!-- MEN -->
+<section id="men" class="products">
+    <h2>Men's Collection</h2>
+    <p>Latest styles for men.</p>
+</section>
+
+
+
+<!-- CONTACT -->
+<section id="contact" class="products">
+    <h2>Contact Us</h2>
+    <p>Email: urbanwear@gmail.com</p>
+    <p>Phone: +91 9876543210</p>
+</section>
+
 <footer>
     <p>© 2026 UrbanWear. All Rights Reserved.</p>
 </footer>
+
 </body>
 </html>
