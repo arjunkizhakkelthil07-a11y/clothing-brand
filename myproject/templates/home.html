@@ -144,7 +144,7 @@
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#collection">Collection</a></li>
+           <li><a href="{% url 'collection' %}">Collection</a></li>
             <li><a href="#men">Men</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -164,17 +164,17 @@
 <section id="collection" class="products">
     <h2>Trending Collection</h2>
     <div class="product-container">
-        {% for i in products %}
-<div class="card">
-    {% if i.image %}
-            <img src="{{ i.image.url }}" alt="">
+        {% for product in products %}
+        <div class="card">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
         {% else %}
-            <p>No Image</p>
+            <p>No image available</p>
         {% endif %}
-        <h3>{{ i.name }}</h3>
-        <p>{{ i.price }}</p>
-    </div>
-    {% endfor %}
+            <h3>{{product.name}}</h3>
+            <p>{{product.price}}</p>
+        </div>
+        {% endfor %}
     </div>
 </section>
 
